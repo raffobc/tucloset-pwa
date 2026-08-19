@@ -56,11 +56,16 @@ supabase/schema.sql          # tablas, RLS y bucket de storage
 ## Funcionalidad actual (MVP)
 
 - Registro / login con email y contraseña
-- Agregar prenda (foto, nombre, categoría, color, temporada, notas)
+- Agregar prenda: foto (tomar con cámara o elegir de galería), nombre, categoría, color, temporada, notas
+- Quitar el fondo de la foto con un botón (procesado 100% en el navegador, sin costo)
 - Listado del closet con filtro por categoría
 - Armar outfits seleccionando varias prendas
 - Cada usuario solo ve y edita sus propias prendas/outfits (RLS)
 - Instalable como PWA (manifest + service worker)
+
+## Quitar fondo de fotos
+
+Usa [`@imgly/background-removal`](https://github.com/imgly/background-removal-js), que corre completamente en el navegador (WASM), sin API keys ni costo. La primera vez que alguien lo usa, el navegador descarga un modelo de IA (~40MB) y lo cachea; después es rápido. El código se carga con `import()` dinámico, así que no afecta el tamaño ni la velocidad de carga inicial de la app.
 
 ## Próximos pasos sugeridos
 
